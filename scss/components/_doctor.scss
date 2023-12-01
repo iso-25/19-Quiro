@@ -1,0 +1,160 @@
+.doctor {
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 27rem;
+
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+      gap: 25rem;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 22rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    border-radius: 20rem;
+    padding: 44rem 39rem 33rem;
+    transition: $transition;
+
+    &:hover {
+      box-shadow: 0rem 0px 15rem var(--c-primary);
+    }
+
+    @include desktop-small {
+      padding: 34rem 20rem;
+    }
+    @include tablet {
+      &:hover {
+        transition: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &__item-person {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25rem;
+    gap: 13rem;
+  }
+
+  &__item-person-img {
+    max-width: 63rem;
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  &__item-person-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+
+  &__item-person-title {
+    color: var(--c-Paragraph);
+    font: $Button;
+    padding-bottom: 3rem;
+  }
+
+  &__item-person-role {
+    color: var(--c-copyright);
+    font: var(--c-Paragraph);
+  }
+
+  &__item-desc {
+    width: 100%;
+    margin-bottom: 28rem;
+  }
+
+  &__item-btn {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__item-btn-a {
+    display: inline-block;
+    max-width: 282rem;
+    width: 100%;
+    margin-inline: auto;
+    border-radius: 50rem;
+    background: var(--c-primary);
+    color: $terciary;
+    font: $Button;
+    border: 0;
+    outline: 0;
+    padding: 10rem 48rem;
+    text-wrap: nowrap;
+    transition: var(--transition);
+
+    &:hover {
+      background: darken($c-primary, 10%);
+      transform: scale(1.1);
+    }
+
+    @include desktop-small {
+      padding: 10rem 44rem;
+    }
+
+    @include mobile {
+      &:hover {
+        transition: none;
+        background: var(--c-primary);
+        transform: none;
+      }
+    }
+
+    @include mobile {
+      padding: 11rem 30rem;
+    }
+  }
+}
+
+.item-active {
+  background: var(--c-primary);
+  transition: $transition;
+
+  &:hover {
+    transition: none;
+    box-shadow: none;
+    transform: none;
+  }
+
+  & .doctor {
+    &__item-person-title,
+    &__item-person-role,
+    &__item-desc {
+      color: var(--white);
+    }
+
+    &__item-btn-a {
+      background: $terciary;
+      color: var(--c-primary);
+
+      &:hover {
+        background: darken($terciary, 5%);
+        transform: scale(1.1);
+      }
+  
+      @include mobile {
+        &:hover {
+          transition: none;
+          background: var($terciary);
+          transform: none;
+        }
+      }
+  
+
+    }
+  }
+}

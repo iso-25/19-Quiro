@@ -1,0 +1,253 @@
+.header {
+  width: 100%;
+  height: 137rem;
+  margin-inline: auto;
+  background-color: var(--body-bg);
+  position: fixed;
+  z-index: 2;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40rem 20rem 54rem;
+    gap: 30rem;
+  }
+
+  &__backdrop {
+    display: none;
+
+    @include tablet {
+      z-index: 3;
+      transform: translateX(120%);
+      display: block;
+      transition: var(--transition);
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__logo {
+    color: var(--c-Paragraph);
+    font: $Heading-4;
+    text-wrap: nowrap;
+    transition: var(--transition-nav);
+
+    &:hover {
+      text-shadow: var(--text-shadow-hover);
+      transform: var(--transform-nav);
+    }
+
+    @include tablet {
+      text-wrap: wrap;
+
+      &:hover {
+        text-shadow: none;
+        transform: none;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70rem;
+
+    @include desktop-small {
+      gap: 35rem;
+    }
+
+    @include tablet {
+      gap: 15rem;
+    }
+  }
+
+  &__search {
+    position: relative;
+    max-width: 278rem;
+    width: 100%;
+    @include tablet {
+      display: none;
+    }
+
+    .material-icons {
+      position: absolute;
+      right: 15rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--c-text-white-nav);
+    }
+
+    input {
+      width: 100%;
+      border-radius: 50rem;
+      background: var(--search-input-bg);
+      padding: 14rem 18rem;
+      padding-right: 45rem;
+      outline: 0;
+      border: 0;
+      font: $Input;
+      color: var(--c-text-white-nav);
+
+      &::placeholder {
+        color: var(--c-text-white-nav);
+      }
+
+      &::-webkit-search-cancel-button {
+        // -webkit-appearance:none;
+        display: none;
+      }
+    }
+  }
+
+  &__ul {
+    display: flex;
+    align-items: center;
+    gap: 24rem;
+
+    @include tablet {
+      position: fixed;
+      width: 30%;
+      z-index: 4;
+      height: 100%;
+      flex-direction: column;
+      left: 0;
+      top: 0;
+      background: var(--c-primary);
+      align-items: center;
+      justify-content: center;
+      transform: translateX(-120%);
+      transition: $transition;
+      gap: 32rem;
+    }
+
+    @include mobile {
+      width: 50%;
+    }
+
+    &._active {
+      transform: translateX(0);
+    }
+
+    &._active ~ .header__backdrop {
+      transform: translateX(0);
+    }
+
+    .icon-close {
+      position: absolute;
+      top: 40rem;
+      right: 40rem;
+      color: var(--c-text-white-nav);
+
+      @include mobile {
+        right: 20rem;
+      }
+    }
+  }
+
+  &__li{
+    transition: var(--transition-nav);
+
+    &:hover {
+      text-shadow: var(--text-shadow-hover);
+      transform: var(--transform-nav);
+    }
+
+    @include mobile {
+      &:hover {
+        text-shadow: none;
+        transform: none;
+      }
+    }
+  }
+
+  &__a {
+    color: var(--c-text-black);
+    font: $Link;
+    position: relative;
+
+    @include mobile {
+      font-size: 20rem;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 1rem;
+      border-radius: 50%;
+      bottom: -3rem;
+      position: absolute;
+      background: var(--c-primary);
+      left: 50%;
+      transform: translateX(-50%);
+      transition: $transition;
+    }
+
+    &:hover,
+    &._active {
+      &::before {
+        width: calc(100% - 8rem);
+      }
+    }
+
+    &:hover,
+    &._active {
+      color: var(--c-primary);
+    }
+
+    @include tablet {
+      color: var(--c-text-white-nav);
+
+      &::before {
+        background: var(--c-text-black);
+      }
+
+      &:hover,
+      &._active {
+        &::before {
+          color: var(--c-text-black);
+        }
+      }
+
+      &:hover,
+      &._active {
+        color: var(--c-text-black);
+      }
+    }
+  }
+}
+
+.icon-menu,
+.icon-light_mode,
+.icon-close {
+  color: var(--c-text-black);
+}
+
+.icon-search {
+  color: var(--c-text-white);
+}
+
+.icon-menu,
+.icon-close {
+  cursor: pointer;
+  display: none;
+
+  @include tablet {
+    display: inline-block;
+  }
+}
+
+.icon-light_mode {
+  cursor: pointer;
+  font-size: 24rem;
+}
+
+.plug{
+  height: 137rem;
+}

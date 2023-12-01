@@ -1,0 +1,124 @@
+.services {
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30rem;
+
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+      gap: 26rem;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 22rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15rem;
+    padding: 46rem 26rem 51rem;
+    transition: $transition;
+
+    &:hover {
+      box-shadow: 0rem 0px 15rem var(--c-primary);
+    }
+
+    @include tablet {
+      &:hover {
+        transition: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &__item-icon {
+    padding-bottom: 28rem;
+  }
+
+  &__item-title {
+    color: var(--c-Paragraph);
+    font: $Heading-4;
+    text-align: center;
+    padding-bottom: 17rem;
+  }
+
+  &__item-desc {
+    max-width: 318rem;
+    text-align: center;
+    padding-bottom: 18rem;
+  }
+
+  &__item-a {
+    display: inline-flex;
+    align-items: start;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-nav);
+
+    &:hover {
+      text-shadow: var(--text-shadow-hover);
+      transform: var(--transform-nav);
+    }
+
+    @include mobile {
+      &:hover {
+        text-shadow: none;
+        transform: none;
+      }
+    }
+  }
+
+  &__item-link-txt {
+    color: var(--c-primary);
+    font: $ItemLink;
+    text-decoration-line: underline;
+  }
+
+  &__arrow-forward {
+    color: var(--c-primary);
+    font-family: $ff-icon;
+    font-size: 22rem;
+    vertical-align: text-bottom;
+    text-align: center;
+    max-width: 24rem;
+    margin-left: 2rem;
+  }
+}
+
+.icon-item {
+  font-family: $ff-icon;
+  font-size: 100rem;
+  color: var(--c-Paragraph);
+  vertical-align: text-top;
+  max-width: 109rem;
+  width: 100%;
+}
+
+.item-active {
+  background: var(--c-primary);
+  transition: $transition;
+
+  &:hover {
+    transition: none;
+    box-shadow: none;
+    transform: none;
+  }
+
+  & .services {
+    &__item-title,
+    &__item-desc,
+    &__item-link-txt,
+    &__arrow-forward {
+      color: var(--white);
+    }
+  }
+
+  & .icon-item {
+    color: var(--c-Paragraph-icon-active);
+  }
+}

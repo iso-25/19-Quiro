@@ -1,0 +1,89 @@
+.join {
+  margin: 129rem 0 131rem;
+  padding: 80rem 20rem;
+  border-radius: 10rem;
+  background: var(--join-bg);
+  display: grid;
+  gap: 47rem;
+
+  @include tablet-small {
+    gap: 40rem;
+    margin: 100rem 0 100rem;
+  }
+
+  &__title {
+    font: $Heading-3;
+    color: var(--c-join-text-white);
+    text-align: center;
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    max-width: 717rem;
+    width: 100%;
+    margin-inline: auto;
+    border-radius: 50rem;
+    background: var(--join-input-bg);
+    padding-right: 8rem;
+
+    button {
+      border-radius: 22rem;
+      background: var(--c-primary);
+      padding: 11rem 25rem;
+      font: $Button;
+      color: var(--white);
+      cursor: pointer;
+      display: inline-block;
+      border: 0;
+      outline: 0;
+      transition: var(--transition);
+
+      &:hover {
+        background: darken($c-primary, 10%);
+        transform: scale(1.1);
+      }
+
+      .material-icons {
+        display: none;
+      }
+
+      @include mobile {
+        &:hover {
+          transition: none;
+          background: var(--c-primary);
+		  transform: none;
+        }
+      }
+
+      @include mobile {
+        padding: 0;
+        flex-shrink: 0;
+        border-radius: 50%;
+        width: 50rem;
+        height: 50rem;
+        .text {
+          display: none;
+        }
+
+        .material-icons {
+          display: inline-block;
+        }
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 21rem 31rem;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      color: var(--c-join-input);
+      font: $Paragraph;
+
+      &::placeholder {
+        color: var(--c-join-input);
+      }
+    }
+  }
+}

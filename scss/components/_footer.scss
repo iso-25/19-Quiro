@@ -1,0 +1,113 @@
+.footer {
+  background: var(--terciary);
+
+  &__container {
+    position: relative;
+    padding: 106rem 20rem 81rem 20rem;
+    display: grid;
+    gap: 108rem;
+
+    grid-template-columns: auto 1fr 1fr;
+    @include desktop-small {
+      grid-template-columns: 1fr 1fr;
+      gap: 50rem;
+    }
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__brand {
+    max-width: 431rem;
+  }
+  &__copy {
+    position: absolute;
+    bottom: 20rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--c-copyright);
+	text-wrap: nowrap;
+
+    @include mobile {
+		font-size: 18rem;
+	  }
+  
+  }
+
+  &__logo {
+    color: var(--c-Paragraph);
+    font: $Heading-4;
+    margin-bottom: 26rem;
+    display: inline-block;
+    transition: var(--transition-nav);
+
+    &:hover {
+      text-shadow: var(--text-shadow-hover);
+      transform: var(--transform-nav);
+    }
+
+    @include tablet {
+      &:hover {
+        text-shadow: none;
+        transform: none;
+      }
+    }
+
+  }
+
+  &__desc {
+    color: var(--c-Paragraph-desc);
+    font: $Paragraph;
+    @include mobile {
+      font-size: 20rem;
+    }
+  }
+}
+
+.footer-info {
+  &:not(:last-child) {
+    margin-bottom: 27rem;
+  }
+
+  &__title {
+    color: var(--c-Paragraph);
+    font: $Button;
+    margin-bottom: 9rem;
+  }
+
+  &__value {
+    color: var(--c-Paragraph-desc);
+    font: $Paragraph;
+    display: inline-flex;
+    gap: 16rem;
+
+    a {
+      color: var(--c-Paragraph-desc);
+    }
+
+    @include mobile {
+		font-size: 20rem;
+	  } 
+  }
+}
+
+.footer-hours {
+  &__title {
+    color: var(--c-Paragraph);
+    font: $Button;
+    margin-bottom: 17rem;
+  }
+
+  &__value {
+    color: var(--c-Paragraph-desc);
+    font: $Paragraph;
+
+    @include mobile {
+		font-size: 20rem;
+	  }
+  
+    &:not(:last-child) {
+      margin-bottom: 15rem;
+    }
+  }
+}

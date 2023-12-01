@@ -1,0 +1,106 @@
+html {
+  font-size: 1px;
+
+  @include tablet {
+    font-size: 0.9px;
+  }
+
+  @include tablet-small {
+    font-size: 0.8px;
+  }
+
+  @include mobile {
+    font-size: 0.7px;
+  }
+
+  @include mobile-small {
+    font-size: 0.6px;
+  }
+
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 16rem;
+  font-family: $ff;
+  background-color: var(--body-bg);
+  @media (max-width: 150px) {
+    display: none;
+  }
+
+}
+
+html._overflow {
+  @include tablet {
+    overflow: hidden;
+  }
+  body {
+    @include tablet {
+      overflow: hidden;
+    }
+  }
+}
+
+.container {
+  max-width: calc(1170rem + 40rem);
+  padding: 20rem;
+  margin-inline: auto;
+  @include tablet {
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+section {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.info {
+  max-width: 837rem;
+  width: 100%;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 70rem;
+  padding: 111rem 0 123rem;
+
+  @include tablet-small {
+    gap: 50rem;
+    padding: 90rem 0 65rem;
+    } 
+}
+
+.title {
+  color: var(--c-Paragraph);
+  font: $Heading-2;
+}
+
+.desc {
+  color: var(--c-Paragraph-desc);
+  font: $Paragraph;
+
+  @include mobile {
+    font-size: 20rem;
+  } 
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  @include tablet-small {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  background: var(--terciary);
+
+  @include mobile {
+    flex-direction: column;
+    padding: 30rem 20rem;
+  }
+}
